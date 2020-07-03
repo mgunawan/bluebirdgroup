@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package proto;
+
+message reqBbmPriceByDateAndRegion{
+    string koderegion = 1;
+    string kodebbm = 2;
+    string tanggal = 3;
+}
+
+message ResEmpty{}
+
+message BbmModel{
+    string koderegion = 1;
+    string kode = 2;
+    string jenisbbm = 3;
+    string satuan = 4;
+    float harga = 5;
+    string validfrom = 6;
+}

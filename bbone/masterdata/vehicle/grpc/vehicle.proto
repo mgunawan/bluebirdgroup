@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package proto;
+
+message ReqByNoLambung{
+    string nolambung = 1;
+}
+
+message ReqAllByPrsh{
+    string kodeperusahaan = 1;
+}
+
+message ReqByPool{
+    string kodepool = 1;
+}
+
+message ResVehicleList{
+    repeated VehicleModel vehicleList =1 ;
+}
+
+message VehicleModel{
+    string kodepool = 1;
+    string nolambung = 2;
+    string nopolisi = 3;
+    string jenisservice = 4;
+    string kodeperusahaan = 5;
+    string kodebmb1 = 6;
+    string kodebmm2 = 7;
+    string kodeargo = 8;
+    bool issticker= 9;
+    bool isDeleted = 10;
+}
+
+message ResEmpty{}
+
+service Vehicle{
+    rpc Add(VehicleModel) returns (ResEmpty){}
+    rpc Edit(VehicleModel) returns (ResEmpty){}
+    rpc Delete(ReqByNoLambung) returns (ResEmpty){}
+    rpc GetByNoLambung(ReqByNoLambung) returns (VehicleModel){}
+    rpc GetByPool(ReqByPool) returns (ResVehicleList){}
+    rpc GetAllByPrsh(ReqAllByPrsh) returns(ResVehicleList){}
+}
+
